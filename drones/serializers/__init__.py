@@ -1,0 +1,5 @@
+from .DroneCategorySerializer import DroneCategorySerializer
+from .DroneSerializer import DroneSerializer
+from .CompetitionSerializer import CompetitionSerializer
+from .PilotSerializer import PilotSerializer
+from .PilotCompetitionSerializer import PilotCompetitionSerializer

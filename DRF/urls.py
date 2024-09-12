@@ -1,5 +1,5 @@
 """
-URL configuration for biblioteca project.
+URL configuration for DRF project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -20,5 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('core.urls'), name="core_urls"),
+    path('api/', include('drones.urls'), name="drones_urls"),
 ]
 
