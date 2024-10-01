@@ -5,4 +5,6 @@ from drones.serializers import DroneCategorySerializer
 class DroneCategoryViewSet(viewsets.ModelViewSet):
     queryset = DroneCategory.objects.all()
     serializer_class = DroneCategorySerializer
-    
+
+    search_fields = ("^name")    
+    ordering_fields = ("name")    
