@@ -1,5 +1,4 @@
-from rest_framework import viewsets, filters
-from django_filters import rest_framework
+from rest_framework import viewsets
 from drones.models import Drone
 from drones.serializers import DroneSerializer
 

@@ -1,9 +1,10 @@
 from rest_framework import serializers
 from drones.models import Competition
-from .DroneSerializer import DroneSerializer
 
 class CompetitionSerializer(serializers.HyperlinkedModelSerializer):
-    drone = DroneSerializer
+    url = serializers.HyperlinkedIdentityField(view_name="drones:competitions-detail")
+    drone = serializers.HyperlinkedRelatedField(many=False, read_only=True, view_name="drones:drones-detail")
+    pilot = serializers.HyperlinkedRelatedField(many=False, read_only=True, view_name="drones:pilots-detail")
 
     class Meta:
         model = Competition

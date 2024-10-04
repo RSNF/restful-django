@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from DRF.views.ApiRootView import ApiRoot
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('core.urls'), name="core_urls"),
-    path('api/', include('drones.urls'), name="drones_urls"),
+    path('api/', ApiRoot.as_view(), name=ApiRoot.name),
+    path('api/', include(('core.urls', 'core'), namespace="core"), name="core_urls"),
+    path('api/', include(('drones.urls', 'drones'), namespace="drones"), name="drones_urls"),
 ]
 

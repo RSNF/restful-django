@@ -2,7 +2,6 @@ from rest_framework import viewsets
 from drones.models import Competition
 from drones.serializers import CompetitionSerializer
 from drones.filters import CompetitionFilter
-import django_filters
 
 class CompetitionViewSet(viewsets.ModelViewSet):
     queryset = Competition.objects.all()
