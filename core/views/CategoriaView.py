@@ -5,3 +5,6 @@ from core.serializers import CategoriaSerializer
 class CategoriaView(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+
+    search_fields = ["^nome"]
+    ordering_fields = ["nome",]
