@@ -23,5 +23,6 @@ urlpatterns = [
     path('api/', ApiRoot.as_view(), name=ApiRoot.name),
     path('api/', include(('core.urls', 'core'), namespace="core"), name="core_urls"),
     path('api/', include(('drones.urls', 'drones'), namespace="drones"), name="drones_urls"),
+    path("auth/", include("rest_framework.urls")),
 ]
 
