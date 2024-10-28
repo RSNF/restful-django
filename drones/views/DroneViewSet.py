@@ -3,8 +3,12 @@ from drones.models import Drone
 from drones.serializers import DroneSerializer
 from rest_framework import permissions
 from drones import custom_permissions
+from rest_framework.throttling import ScopedRateThrottle
 
 class DroneViewSet(viewsets.ModelViewSet):
+    throttle_scope = "drones"
+    throttle_classes = (ScopedRateThrottle,)
+
     queryset = Drone.objects.all()
     serializer_class = DroneSerializer
 
