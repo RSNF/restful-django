@@ -71,3 +71,7 @@ Rota Raiz do projeto: ```api/```
 ---
 
 Aluno: Raimundo Santana Novaes Filho
+
+---
+
+![Restic36 Logo](./assets/imgs/restic36_logo.png)
