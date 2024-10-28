@@ -65,6 +65,8 @@ Também é possível mudar configuraçãoes desse formatador editando o arquivo 
 Rota Raiz do projeto: ```api/```
   - Contém instruções dos endpoints disponíveis.
  
+---
+![Django API Root](./assets/imgs/django_api-root.png)
 
 ---
 
