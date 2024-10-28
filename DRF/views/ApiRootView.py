@@ -4,6 +4,7 @@ from rest_framework import generics
 
 from drones.views import DroneViewSet
 
+
 class ApiRoot(generics.GenericAPIView):
     name = "api-root"
 
@@ -11,10 +12,14 @@ class ApiRoot(generics.GenericAPIView):
         return Response(
             {
                 "drones": {
-                    "drone-categories": reverse("drones:dronecategory-list", request=request),
+                    "drone-categories": reverse(
+                        "drones:dronecategory-list", request=request
+                    ),
                     "drones": reverse("drones:drones-list", request=request),
                     "pilots": reverse("drones:pilots-list", request=request),
-                    "competitions": reverse("drones:competitions-list", request=request),
+                    "competitions": reverse(
+                        "drones:competitions-list", request=request
+                    ),
                 },
                 "core": {
                     "livros": reverse("core:livros-list", request=request),
@@ -25,8 +30,6 @@ class ApiRoot(generics.GenericAPIView):
                     "schema": reverse("schema", request=request),
                     "swagger": reverse("swagger-ui", request=request),
                 },
-                "auth": {
-                    "api-token-auth": reverse("api-token-auth", request=request)
-                }
+                "auth": {"api-token-auth": reverse("api-token-auth", request=request)},
             }
         )

@@ -1,6 +1,7 @@
 from django_filters import rest_framework as filters
 from drones.models import Competition
 
+
 class CompetitionFilter(filters.FilterSet):
     from_achievement_date = filters.DateFilter(
         field_name="distance_achievement_date",
@@ -13,22 +14,16 @@ class CompetitionFilter(filters.FilterSet):
     )
 
     min_distance_in_feet = filters.NumberFilter(
-        field_name="distance_in_feet",
-        lookup_expr="gte"
+        field_name="distance_in_feet", lookup_expr="gte"
     )
 
     max_distance_in_feet = filters.NumberFilter(
-        field_name="distance_in_feet",
-        lookup_expr="lte"
+        field_name="distance_in_feet", lookup_expr="lte"
     )
 
-    drone_name = filters.AllValuesFilter(
-        field_name="drone__name"
-    )
+    drone_name = filters.AllValuesFilter(field_name="drone__name")
 
-    pilot_name = filters.AllValuesFilter(
-        field_name="pilot__name"
-    )
+    pilot_name = filters.AllValuesFilter(field_name="pilot__name")
 
     class Meta:
         model = Competition
@@ -38,5 +33,5 @@ class CompetitionFilter(filters.FilterSet):
             "to_achievement_date",
             "distance_achievement_date",
             "drone_name",
-            "pilot_name"
+            "pilot_name",
         )

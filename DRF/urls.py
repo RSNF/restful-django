@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from DRF.views.ApiRootView import ApiRoot
@@ -21,13 +22,20 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', ApiRoot.as_view(), name=ApiRoot.name),
-    path('api/', include(('core.urls', 'core'), namespace="core"), name="core_urls"),
-    path('api/', include(('drones.urls', 'drones'), namespace="drones"), name="drones_urls"),
+    path("admin/", admin.site.urls),
+    path("api/", ApiRoot.as_view(), name=ApiRoot.name),
+    path("api/", include(("core.urls", "core"), namespace="core"), name="core_urls"),
+    path(
+        "api/",
+        include(("drones.urls", "drones"), namespace="drones"),
+        name="drones_urls",
+    ),
     path("auth/", include("rest_framework.urls")),
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
-    path('api-token-auth/', views.obtain_auth_token, name='api-token-auth'),
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(
+        "api/docs/",
+        SpectacularSwaggerView.as_view(url_name="schema"),
+        name="swagger-ui",
+    ),
+    path("api-token-auth/", views.obtain_auth_token, name="api-token-auth"),
 ]
-

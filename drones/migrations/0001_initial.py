@@ -8,58 +8,115 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='DroneCategory',
+            name="DroneCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=250)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=250)),
             ],
             options={
-                'ordering': ('name',),
+                "ordering": ("name",),
             },
         ),
         migrations.CreateModel(
-            name='Pilot',
+            name="Pilot",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='', max_length=150)),
-                ('gender', models.CharField(choices=[('M', 'Male'), ('F', 'Female')], default='M', max_length=2)),
-                ('races_count', models.IntegerField()),
-                ('inserted_timestamp', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(default="", max_length=150)),
+                (
+                    "gender",
+                    models.CharField(
+                        choices=[("M", "Male"), ("F", "Female")],
+                        default="M",
+                        max_length=2,
+                    ),
+                ),
+                ("races_count", models.IntegerField()),
+                ("inserted_timestamp", models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'ordering': ('name',),
+                "ordering": ("name",),
             },
         ),
         migrations.CreateModel(
-            name='Drone',
+            name="Drone",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=250)),
-                ('manufacturing_date', models.DateField()),
-                ('has_it_completed', models.BooleanField(default=False)),
-                ('inserted_timestamp', models.DateTimeField(auto_now_add=True)),
-                ('drone_category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='drones', to='drones.dronecategory')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=250)),
+                ("manufacturing_date", models.DateField()),
+                ("has_it_completed", models.BooleanField(default=False)),
+                ("inserted_timestamp", models.DateTimeField(auto_now_add=True)),
+                (
+                    "drone_category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="drones",
+                        to="drones.dronecategory",
+                    ),
+                ),
             ],
             options={
-                'ordering': ('name',),
+                "ordering": ("name",),
             },
         ),
         migrations.CreateModel(
-            name='Competition',
+            name="Competition",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('distance_in_feet', models.IntegerField()),
-                ('distance_achievement_date', models.DateField()),
-                ('drone', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='drones.drone')),
-                ('pilot', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='competitions', to='drones.pilot')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("distance_in_feet", models.IntegerField()),
+                ("distance_achievement_date", models.DateField()),
+                (
+                    "drone",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="drones.drone"
+                    ),
+                ),
+                (
+                    "pilot",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="competitions",
+                        to="drones.pilot",
+                    ),
+                ),
             ],
             options={
-                'ordering': ('-distance_in_feet',),
+                "ordering": ("-distance_in_feet",),
             },
         ),
     ]

@@ -3,6 +3,7 @@ from drones.models import Competition
 from drones.serializers import CompetitionSerializer
 from drones.filters import CompetitionFilter
 
+
 class CompetitionViewSet(viewsets.ModelViewSet):
     queryset = Competition.objects.all()
     serializer_class = CompetitionSerializer

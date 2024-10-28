@@ -5,6 +5,7 @@ from rest_framework import permissions
 from drones import custom_permissions
 from rest_framework.throttling import ScopedRateThrottle
 
+
 class DroneViewSet(viewsets.ModelViewSet):
     throttle_scope = "drones"
     throttle_classes = (ScopedRateThrottle,)
@@ -12,10 +13,7 @@ class DroneViewSet(viewsets.ModelViewSet):
     queryset = Drone.objects.all()
     serializer_class = DroneSerializer
 
-    filterset_fields = (
-        "drone_category",
-        "has_it_competed"
-    )
+    filterset_fields = ("drone_category", "has_it_competed")
 
     search_fields = ("^name",)
 

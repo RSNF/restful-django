@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('drones', '0002_competition_inserted_timestamp_and_more'),
+        ("drones", "0002_competition_inserted_timestamp_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='drone',
-            name='name',
+            model_name="drone",
+            name="name",
             field=models.CharField(max_length=250, unique=True),
         ),
         migrations.AlterField(
-            model_name='dronecategory',
-            name='name',
+            model_name="dronecategory",
+            name="name",
             field=models.CharField(max_length=250, unique=True),
         ),
         migrations.AlterField(
-            model_name='pilot',
-            name='name',
-            field=models.CharField(default='', max_length=150, unique=True),
+            model_name="pilot",
+            name="name",
+            field=models.CharField(default="", max_length=150, unique=True),
         ),
     ]

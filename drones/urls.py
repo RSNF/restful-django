@@ -8,6 +8,4 @@ router.register(r"drones", DroneViewSet, basename="drones")
 router.register(r"pilots", PilotViewSet, basename="pilots")
 router.register(r"competitions", CompetitionViewSet, basename="competitions")
 
-urlpatterns = [
-    path("", include(router.urls))
-]
+urlpatterns = [path("", include(router.urls))]

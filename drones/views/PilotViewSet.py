@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.throttling import ScopedRateThrottle
 
+
 class PilotViewSet(viewsets.ModelViewSet):
     throttle_scope = "pilots"
     throttle_classes = (ScopedRateThrottle,)
