@@ -4,8 +4,10 @@ from drones.serializers import DroneSerializer
 from rest_framework import permissions
 from drones import custom_permissions
 from rest_framework.throttling import ScopedRateThrottle
+from drf_spectacular.utils import extend_schema
 
 
+@extend_schema(tags=["Drone"])
 class DroneViewSet(viewsets.ModelViewSet):
     throttle_scope = "drones"
     throttle_classes = (ScopedRateThrottle,)
