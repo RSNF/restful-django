@@ -3,8 +3,10 @@ from core.models import Colecao
 from core.serializers import ColecaoSerializer
 from rest_framework import permissions
 from core import custom_permissions
+from drf_spectacular.utils import extend_schema
 
 
+@extend_schema(tags=["Coleção"])
 class ColecaoView(viewsets.ModelViewSet):
     queryset = Colecao.objects.all()
     serializer_class = ColecaoSerializer
