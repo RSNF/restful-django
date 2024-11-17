@@ -20,9 +20,11 @@ from django.urls import path, include
 from DRF.views.ApiRootView import ApiRoot
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken import views
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", RedirectView.as_view(url="api/", permanent=False), name="redirect_index"),
     path("api/", ApiRoot.as_view(), name=ApiRoot.name),
     path("api/", include(("core.urls", "core"), namespace="core"), name="core_urls"),
     path(

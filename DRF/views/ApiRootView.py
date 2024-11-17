@@ -25,6 +25,7 @@ class ApiRoot(generics.GenericAPIView):
                     "livros": reverse("core:livros-list", request=request),
                     "autores": reverse("core:autores-list", request=request),
                     "categorias": reverse("core:categorias-list", request=request),
+                    "colecoes": reverse("core:colecoes-list", request=request),
                 },
                 "swagger": {
                     "schema": reverse("schema", request=request),
