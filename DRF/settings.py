@@ -169,4 +169,4 @@ SPECTACULAR_SETTINGS = {
     },
 }
 
-CORS_ALLOWED_ORIGINS = ["192.168.1.100"]
+CORS_ALLOWED_ORIGINS = ["http://192.168.1.100", "http://localhost:8000"]
