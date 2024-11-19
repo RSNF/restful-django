@@ -45,12 +45,46 @@ Também é possível mudar configuraçãoes desse formatador editando o arquivo 
 
 ---
 
+### Cobertura de testes
+
+Os pacotes de cobertura de testes e alguns testes unitários estão inclusos nos apps. Para executar os testes use ```pytest``` ou ```coverage```.
+
+```bash
+pytest <test_folder>
+```
+
+ou
+
+
+```bash
+coverage run -m pytest
+```
+
+Após rodar o comando coverage para fazer os testes, o coverage pode gerar imprimir um relatório no terminal ou criar uma página HTML.
+
+```bash
+coverage <html ou report>
+```
+
+Também é possível usar a CLI do pacote ```pytest-cov``` e mesclar o que o ```pytest``` e o ```coverage``` fazem em um único comando.
+
+```bash
+pytest --cov=<folder> --cov-report=<html,report>
+```
+
+> A extensão do Visual Studio Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) é um otimo auxilar para utilizar com a cobertura de testes com relatório em HTML.
+
+> ![Live Server Ext](./assets/imgs/live_server_logo.png)
+
+---
+
 ### Apps inclusos
 - Biblioteca (core)
   - Rotas
     - ```api/livros/```
     - ```api/autores/```
     - ```api/categorias/```
+    - ```api/colecoes/```
 - Drones 
   - Rotas
     - ```api/drone-categories/```
