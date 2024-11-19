@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django_filters",
     "rest_framework.authtoken",
     "drf_spectacular",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = "DRF.urls"
@@ -165,3 +168,5 @@ SPECTACULAR_SETTINGS = {
         "persistAuthorization": True,
     },
 }
+
+CORS_ALLOWED_ORIGINS = ["192.168.1.100"]
