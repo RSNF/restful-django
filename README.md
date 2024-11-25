@@ -74,7 +74,7 @@ pytest --cov=<folder> --cov-report=<html,report>
 
 > A extensão do Visual Studio Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) é um otimo auxilar para utilizar com a cobertura de testes com relatório em HTML.
 
-> ![Live Server Ext](./assets/imgs/live_server_logo.png)
+> ![Live Server Ext](./static/imgs/live_server_logo.png)
 
 ---
 
@@ -100,7 +100,7 @@ Rota Raiz do projeto: ```api/```
   - Contém instruções dos endpoints disponíveis.
  
 ---
-![Django API Root](./assets/imgs/django_api-root.png)
+![Django API Root](./static/imgs/django_api-root.png)
 
 ---
 
@@ -108,4 +108,4 @@ Aluno: Raimundo Santana Novaes Filho
 
 ---
 
-![Restic36 Logo](./assets/imgs/restic36_logo.png)
+![Restic36 Logo](./static/imgs/restic36_logo.png)
