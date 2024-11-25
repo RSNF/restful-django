@@ -21,6 +21,8 @@ from DRF.views.ApiRootView import ApiRoot
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework.authtoken import views
 from django.views.generic.base import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -40,4 +42,7 @@ urlpatterns = [
         name="swagger-ui",
     ),
     path("api-token-auth/", views.obtain_auth_token, name="api-token-auth"),
-]
+] + static(
+    settings.STATIC_URL,
+    document_root=settings.STATIC_ROOT,
+)
