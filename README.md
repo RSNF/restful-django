@@ -55,7 +55,7 @@ O projeto também pode ser iniciado com o [Docker](https://www.docker.com), para
 
 Copie o arquivo ```.env.example``` para ```.env```.
 
-> O Docker usará as configuraçãos do base.py, para alterar essa configuração, mude o arquivo ```.env```.
+> O Docker usará as configuraçãos do ```DRF.settings.base.py```, para alterar essa configuração, mude o arquivo ```.env```.
 
 Após a instalação execute o comando ```docker-compose up -d``` na raiz do projeto.
 
