@@ -59,7 +59,7 @@ Copie o arquivo ```.env.example``` para ```.env```.
 
 Após a instalação execute o comando ```docker-compose up -d``` na raiz do projeto.
 
-Feito esses passos, os containers necessários vão ser subidos, acesse o containter do Django usando ```docker exec -it restful01-django sh``` e execute as migrations e seeder.
+Feito esses passos, os containers necessários vão ser subidos, para acessar o containter do Django use ```docker exec -it restful01-django sh``` e execute as migrations e seeder.
 
 ---
 
