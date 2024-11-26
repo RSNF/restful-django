@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-3xh@z85od^#@q%et6l(#=q1q#7hw6lkf)w0_wxfg9mvz&#@crt"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG")
+DEBUG = os.environ.get("DEBUG") == "True"
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,::1").split(",")
 
@@ -91,7 +91,7 @@ DATABASES = {
         "PASSWORD": os.getenv("DB_PASS"),
         "HOST": os.getenv("DB_HOST"),
         "OPTIONS": {"sslmode": os.getenv("DB_SSLM")},
-    }
+    },
 }
 
 
