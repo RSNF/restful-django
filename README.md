@@ -2,7 +2,13 @@
 
 ### Instruções de uso
 
-Primeiramente instalar os pacotes necessários. Use o [Pip](https://pypi.org/project/pip/) para instalar as dependências do ```requirments.txt```.
+Antes de tudo, especifique qual configuração vai usar, exportando a variável de ambiente **DJANGO_SETTINGS_MODULE**.
+
+```bash
+export DJANGO_SETTINGS_MODULE=DRF.settings.development
+```
+
+Agora instale os pacotes necessários. Use o [Pip](https://pypi.org/project/pip/) para instalar as dependências do ```requirments.txt```.
 
 ```bash
 pip install -r requirements.txt
@@ -11,6 +17,11 @@ Após essa etápa, deve-se iniciar o banco sqlite do projeto, isso será feito e
 
 ```bash
 python manage.py migrate
+```
+e feito as migrations, pode-se popular o banco.
+
+```bash
+python manage.py populate_db
 ```
 Por último, devemos testar o servidor rodando. Usaremos mais uma vez a CLI do Django.
 
@@ -31,6 +42,20 @@ Quit the server with CONTROL-C.
 
 ```
 Acesse a raiz da API ```http://127.0.0.1:8000/api```.
+
+---
+
+### Instruções de uso (Docker)
+
+O projeto também pode ser iniciado com o [Docker](https://www.docker.com), para poder inicia-lo, baixe e instale o [Docker Compose](https://docs.docker.com/compose/install/). 
+
+Copie o arquivo ```.env.example``` para ```.env```.
+
+> O Docker usará as configuraçãos do base.py, para alterar essa configuração, mude o arquivo ```.env```.
+
+Após a instalação execute o comando ```docker-compose up -d``` na raiz do projeto.
+
+Feito esses passos, os containers necessários vão ser subidos, acesse o containter do Django usando ```docker exec -it restful01-django sh``` e execute as migrations e seeder.
 
 ---
 
@@ -74,7 +99,7 @@ pytest --cov=<folder> --cov-report=<html,report>
 
 > A extensão do Visual Studio Code [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) é um otimo auxilar para utilizar com a cobertura de testes com relatório em HTML.
 
-> ![Live Server Ext](./static/imgs/live_server_logo.png)
+> ![Live Server Ext](./staticfiles/imgs/live_server_logo.png)
 
 ---
 
@@ -100,7 +125,7 @@ Rota Raiz do projeto: ```api/```
   - Contém instruções dos endpoints disponíveis.
  
 ---
-![Django API Root](./static/imgs/django_api-root.png)
+![Django API Root](./staticfiles/imgs/django_api-root.png)
 
 ---
 
@@ -108,4 +133,4 @@ Aluno: Raimundo Santana Novaes Filho
 
 ---
 
-![Restic36 Logo](./static/imgs/restic36_logo.png)
+![Restic36 Logo](./staticfiles/imgs/restic36_logo.png)
