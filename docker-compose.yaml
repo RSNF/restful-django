@@ -41,7 +41,7 @@ services:
     volumes:
       - .:/var/www/django
     working_dir: "/var/www/django"
-    command: python manage.py runserver restful01-django:8000
+    command: gunicorn DRF.wsgi -b restful01-django:8000
     networks:
       - django-network
 
