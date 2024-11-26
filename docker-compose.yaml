@@ -1,0 +1,50 @@
+volumes:
+  db_data:
+    external: false
+
+services:
+  db:
+    image: postgres:alpine
+    container_name: postgresql-django
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+    ports:
+      - ${DB_PORT}:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - django-network
+
+  dbadmin:
+    image: adminer
+    container_name: adminer-django
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - ${ADMINER_PORT}:8080
+    networks:
+      - django-network
+
+  django:
+    build: ./
+    env_file:
+      - .env
+    container_name: restful01-django
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - ${DJANGO_PORT}:8000
+    volumes:
+      - .:/var/www/django
+    working_dir: "/var/www/django"
+    command: python manage.py runserver restful01-django:8000
+    networks:
+      - django-network
+
+networks:
+  django-network:
+    driver: bridge
