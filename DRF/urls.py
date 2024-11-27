@@ -26,7 +26,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", RedirectView.as_view(url="api/", permanent=False), name="redirect_index"),
+    # path("", RedirectView.as_view(url="api/", permanent=False), name="redirect_index"),
     path("api/", ApiRoot.as_view(), name=ApiRoot.name),
     path("api/", include(("core.urls", "core"), namespace="core"), name="core_urls"),
     path(
@@ -42,7 +42,11 @@ urlpatterns = [
         name="swagger-ui",
     ),
     path("api-token-auth/", views.obtain_auth_token, name="api-token-auth"),
+    path("", include("home.urls")),
 ] + static(
     settings.STATIC_URL,
     document_root=settings.STATIC_ROOT,
 )
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
