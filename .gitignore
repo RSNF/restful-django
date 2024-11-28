@@ -12,6 +12,7 @@ venv/
 *.pot
 *.sqlite3
 media/
+static/
 
 # IDEs
 .idea/
