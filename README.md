@@ -47,6 +47,8 @@ Quit the server with CONTROL-C.
 ```
 Acesse a raiz da API ```http://127.0.0.1:8000/api```.
 
+> Caso a página HTML não esteja estilizada, execute o comando ```python manage.py collectstatic```, que irá coletar o CSS e fontes dentro da pasta ```staticfiles/```.
+
 ---
 
 ### Instruções de uso (Docker)
